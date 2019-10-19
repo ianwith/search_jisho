@@ -45,15 +45,19 @@ class JapaneseItem {
 
 class SenseItem {
   final List<String> englishDefinitions;
+  final List<String> partsOfSpeech;
 
   SenseItem({
-    this.englishDefinitions
+    this.englishDefinitions,
+    this.partsOfSpeech,
   });
 
   SenseItem.fromJSON(Map<String, dynamic> json)
-      : englishDefinitions = new List<String>.from(json['english_definitions']);
+      : englishDefinitions = new List<String>.from(json['english_definitions']),
+        partsOfSpeech = new List<String>.from(json['parts_of_speech']);
 
   Map<String, dynamic> toJSON() => {
-    'english_definitions': englishDefinitions
+    'english_definitions': englishDefinitions,
+    'parts_of_speech': partsOfSpeech,
   };
 }
